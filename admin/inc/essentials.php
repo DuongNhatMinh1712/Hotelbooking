@@ -1,5 +1,10 @@
 <?php
 
+    //frontend purpose data
+    define('SITE_URL','http://127.0.0.1/hbwebsite/');
+    define('ABOUT_IMG_PATH',SITE_URL.'images/about/');
+
+    //backend upload process needs this data
     define('UPLOAD_IMAGE_PATH',$_SERVER['DOCUMENT_ROOT'].'/hbwebsite/images/');
     define('ABOUT_FOLDER','abouts/');
 
@@ -55,5 +60,15 @@
         }
         
     }
+
+    function deleteImage($image, $folder){
+        if(unlink(UPLOAD_IMAGE_PATH.$folder.$image)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 ?>
 
